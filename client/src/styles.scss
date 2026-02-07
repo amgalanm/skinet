@@ -1,5 +1,16 @@
 @use '@angular/material' as mat;
 
+@include mat.core();
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$violet-palette,
+  ),
+));
+
+@include mat.all-component-themes($theme);
+
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
 :root {
   @include mat.button-overrides((
@@ -7,8 +18,15 @@
     outlined-container-shape: '6px'
   ));
   @include mat.badge-overrides((
-    background-color: blue
+    background-color: #2196F3
   ));
+}
+
+.mat-badge-content {
+  border-radius: 50% !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  line-height: 22px !important;
 }
 
 .match-input-height {
